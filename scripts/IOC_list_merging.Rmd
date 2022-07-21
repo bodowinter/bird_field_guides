@@ -1,0 +1,197 @@
+---
+title: "Merging field guides with IOC world list"
+author: "Bodo"
+date: "21/07/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+In this script, I will merge data from our 18 field guides with the IOC world bird list. Unfortunately the IOC list is quite a messy data frame - not particularly machine-readable due to empty rows etc. So some data cleaning will be necessary.
+
+## Setup
+
+Load packages:
+
+```{r warning = FALSE, message = FALSE}
+library(tidyverse)
+```
+
+Load data:
+
+```{r warning = FALSE, message = FALSE}
+# Field guide data:
+
+voice <- read_csv('../data/voice_all_guides.csv')
+
+# IOC word list:
+
+IOC <- read_csv('../data/master_ioc_list_v12.1.csv',
+                skip = 3) # first two rows are empty
+```
+
+## Data wrangling IOC word list
+
+Check the structure of this data frame:
+
+```{r}
+IOC
+```
+
+Let's rename columns. First make all lowercase, then get rid of those pesky brackets.
+
+```{r}
+# All lowercase:
+
+colnames(IOC) <- str_to_lower(colnames(IOC))
+
+# Get rid of brackets:
+
+colnames(IOC) <- str_replace_all(colnames(IOC),
+                                 '(\\()|(\\))', # regex for all brackets
+                                 '') # replace with nothing
+
+# Replace spaces with underscores:
+
+colnames(IOC) <- str_replace_all(colnames(IOC),
+                                 ' ', '_')
+
+# Make some of the names shorter:
+
+IOC <- rename(IOC,
+              family = family_scientific,
+              english = species_english)
+```
+
+Next, the `NA`'s need to be filled downwards.
+
+```{r}
+IOC <- fill(IOC,
+            order, genus, species_scientific, subspecies,
+            family, family_english,
+            english)
+
+# Check:
+
+IOC
+```
+
+Make the `order` column nicer (right now it's all caps, which screams at me!):
+
+```{r}
+IOC <- mutate(IOC,
+              order = str_to_title(order))
+```
+
+
+To create a species identifier that can be matched with our field guide database, concatenate the strings in the `genus` column together with the strings in the `species_scientific` column with a space in between:
+
+```{r}
+IOC <- mutate(IOC,
+              latin_species = str_c(genus, ' ', species_scientific))
+
+# Check 10random rows:
+
+sample_n(IOC, 10) %>% select(latin_species,
+                             order, family,
+                             english)
+```
+
+This looks usable.
+
+Let's reduce this `IOC` tibble to only those columns that we want to appear in the cleaned write-out. Then save this externally:
+
+```{r}
+# Select columns:
+
+IOC <- select(IOC,
+              latin_species, order, family, family_english, english, subspecies)
+
+# Write:
+
+write_csv(IOC, '../data/master_ioc_list_v12.1_cleaned.csv')
+```
+
+An issue with merging the data is going to be the fact that each subspecies is on a different row. As nearly all field guides have no subspecies information, we will dispense of this and get rid of duplicates. After that, we can drop the `subspecies` column:
+
+```{r}
+IOC <- filter(IOC, !duplicated(latin_species)) %>% 
+  select(-subspecies)
+```
+
+Check:
+
+```{r}
+IOC
+```
+
+The row of NAs is not an issue.
+
+## Merge field guide data with IOC world list
+
+Merge the new `IOC` tibble with the field guide:
+
+```{r}
+voice <- left_join(voice, IOC, # both tibbles
+                   by = 'latin_species') # key
+```
+
+## Check NAs and append coding columns:
+
+How many did not merge?
+
+```{r}
+filter(voice, is.na(family)) %>% nrow() # quite a few!
+
+filter(voice, is.na(family))
+```
+
+Quite a few did not merge correctly.
+
+Let's flag these by creating an identifier variable:
+
+```{r}
+voice <- mutate(voice,
+                match = complete.cases(family))
+```
+
+Append columns for what Nigel should add. First, a copy of the `latin_species` column that will contain the corrected name:
+
+```{r}
+voice <- mutate(voice,
+                latin_species_correct = latin_species)
+```
+
+Create a column for whether a name was changed (default populated with `no`), then a column where comments can be added:
+
+```{r}
+voice$changed <- 'no'
+voice$comment <- ''
+```
+
+Write this to file:
+
+```{r}
+write_csv(voice, '../data/voice_all_guides_with_ioc.csv')
+```
+
+Another approach of data cleaning in bulk would be to count all latin species names and sort them alphabetically. This way we can easily spot typos:
+
+```{r}
+species_counts <- voice %>%
+  count(latin_species) %>% arrange(latin_species)
+
+# Save outside:
+
+write_csv(species_counts, '../data/all_guides_species_counts.csv')
+```
+
+
+
+
+
+

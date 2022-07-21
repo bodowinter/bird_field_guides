@@ -1,0 +1,86 @@
+---
+title: "Combine all field guides"
+author: "Bodo"
+date: "21/07/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+This script takes the folder `raw_data` in the `data` folder, loops through all file names and combines them into one big table.
+
+## Processing
+
+Load package:
+
+```{r message = FALSE, warning = FALSE}
+library(tidyverse)
+```
+
+Get file names from `data/raw_data` folder:
+
+```{r}
+filenames <- list.files('../data/raw_data')
+```
+
+Loop through and get all files. The loop has to branch out because not all field guides have length info.
+
+```{r}
+# Create empty data frame to be filled:
+
+df <- c()
+
+# Loop through file names:
+
+for (i in seq_along(filenames)) {
+  
+  x <- read_csv(str_c('../data/raw_data/', filenames[i]))
+  
+  if ('Length' %in% colnames(x)) {
+    x <- select(x, EnglishCommon, LatinSpecies, Voice, Length)
+  } else {
+    x <- select(x, EnglishCommon, LatinSpecies, Voice)
+    x$Length <- NA
+  }
+  
+  # Add fieldguide info from file name:
+  
+  x$fieldguide <- filenames[i]
+  
+  # Combine with growing data frame:
+  
+  df <- rbind(df, x)
+}
+```
+
+Rename and re-order columns:
+
+```{r}
+df <- df %>% 
+  rename(english_common = EnglishCommon,
+         latin_species = LatinSpecies,
+         voice = Voice,
+         length = Length) %>% 
+  select(fieldguide, english_common, latin_species, length, voice)
+```
+
+Get rid of the `.csv` from the `fieldguide` column:
+
+```{r}
+df <- mutate(df,
+             fieldguide = str_replace_all(fieldguide, '\\.csv', ''))
+```
+
+Write externally:
+
+```{r}
+write_csv(df, '../data/voice_all_guides.csv')
+```
+
+
+
+
