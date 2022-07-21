@@ -1,0 +1,19 @@
+﻿FileName,Author,FirstEdition,CurrentEdition,Publisher,Place,OnomatopoeiaHighlighting,AllBirdsCoded,VoiceSection,Notes,ISBN,CleanText,SyntacticAnnotation,ComparisonCoded,CleanTextChecked,OnomatopeiaCoded
+allabout_birds.csv,The Cornell Lab,2020,2020,Cornell University,Ithaca,italics,yes,yes,website,,no,no,no,no,no
+bruun_hamlyn_guide.csv,"Bertel Brun (text), Arthur Singer (illustrator)",1970,1978,Hamlyn,London,single quotes,only vocal,no,,,yes,no,yes,yes,no
+collins_british_common.csv,"Paul Sterry, Paul Stancliffe",2015,2015,Harper Collins,London,italics,yes,yes,by British Trust for Ornithology,978-0-00-755152-1,yes,no,yes,yes,no
+collins_british_rare.csv,"Paul Sterry, Paul Stancliffe",2015,2015,Harper Collins,London,italics,yes,yes,by British Trust for Ornithology,978-0-00-755156-9,yes,no,yes,yes,no
+collins_gem_birds.csv,Jim Flegg,2001,2012,Harper Collins,London,bold and italics,yes,yes,,978-0-00-717860-5,yes,yes,yes,yes,yes
+collins_gem_garden_birds.csv,Stephen Moss,2004,2012,Harper Collins,London,single quotes,yes,yes,less onomatopoeia?,978-0-00-717614-4,yes,yes,yes,yes,yes
+felix_hisek_birds.csv,Dr. Jiri Felix (author); Kvetoslav Hisek (illustrator),1978,1983,Octopus Books Limited,London,single quotes,yes,yes,translated by Olga Kuthanová,0-7064-0766-0,yes,yes,yes,yes,no
+holden_cleeves_birds.csv,"Peter Holden, Tim Cleeves",2002,2014,Bloomsbury Publishing,London,single quotes,only vocal,yes,rarities section at end did not include voice and was not coded,978-1-4729-0647-2,yes,no,no,yes,no
+mackinnon_china.csv,"John Mackinnon, Nigel Hicks",2016,2016,Bloomsbury Publishing,London,italics,yes,no,,978-1-4729-3213-6,yes,yes,yes,yes,yes
+morcombe_australia.csv,Michael Morcombe,2000,2003,Steve Parish Publishing Pty Ltd,Archerfield,single quotes,yes,yes,,174021417X,yes,no,no,yes,no
+national_geographic_america.csv,"John L. Dunn, Jonathan Alderfer, maps by Paul Lehman",2017,2017,National Geographic,"Washington, DC",italics,yes,yes,,978-1-4262-1835-4,yes,no,yes,yes,no
+national_trust_bird_spotter.csv,"Robyn Swift (text), Mike Langman (Illustrations)",2016,2016,Nosy Crow,London,italics,yes,yes,childrens guide,978-1-78800-422-0,yes,yes,yes,yes,yes
+peterson_chalif_mexico.csv,"Roger Tory Peterson, Edward L. Chalif",1973,1973,Houghton Mifflin,New York,italics,yes,yes,,?,yes,no,no,yes,no
+rspb_brereton.csv,"Catherine Brereton, Kate McLelland",2020,2020,Bloomsbury Publishing,London,italics,yes,yes,childrens guide,978-1-5266-0281-7,yes,yes,yes,yes,yes
+rspb_pocket_birds_harrap.csv,"Simon Harrap (text), Dave Nurney (illustrator)",2007,2012,Bloomsbury Publishing,London,italics,yes,yes,from the Royal Society for the Protection of Birds,978-1-4729-6262-1,yes,yes,yes,yes,yes
+sibley_birds.csv,David Sibley,2000,2014,Bloomsbury Publishing,London,italics,yes,yes,,978-1-4729-0927-5,no,no,no,no,no
+simpson_day_australian.csv,"Ken Simpson, Nicolas Day, Peter Trusler",1984,1989,Christopher Helm London,London,single quotes,only vocal,yes,"form, concept and design by Penguin books Australia (hence the similarity)",0-7470-3023-5,yes,yes,yes,yes,no
+tarboton_kruger_national_park.csv,Warwick Tarboton & Peter Ryan,2016,2016,Penguin Random House,Cape Town,italics and single quotes,only vocal,no,,978-1-77584-449-5,yes,yes,yes,yes,no
