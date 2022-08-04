@@ -72,13 +72,19 @@ Second, a column coding for whether a typo has been fixed. Crucially, if there i
 birds$typo <- 'NO'
 ```
 
-Third, an empty column to flag potential cases of Warblish we have missed:
+Third, a column coding for whether there were any other fixes (e.g., trailing spaces, brackets).
+
+```{r}
+birds$fixes <- 'NO'
+```
+
+Fourth, an empty column to flag potential cases of Warblish we have missed. This should be used if the annotator made the decision to change single quotes to *:
 
 ```{r}
 birds$warblish <- ''
 ```
 
-Fourth, an empty column telling us if there's any interesting observations or anything specific about how this example has been processed, let's call it `comment`:
+Fifth, an empty column telling us if there's any interesting observations or anything specific about how this example has been processed, let's call it `comment`:
 
 ```{r}
 birds$comment <- ''

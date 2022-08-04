@@ -209,9 +209,11 @@ birds &lt;- sample_n(birds, size = nrow(birds))</code></pre>
 <pre class="r"><code>birds$voice_bounded &lt;- birds$voice</code></pre>
 <p>Second, a column coding for whether a typo has been fixed. Crucially, if there is a typo, this needs to be fixed in both <code>voice</code> and <code>voice_bounded</code>:</p>
 <pre class="r"><code>birds$typo &lt;- &#39;NO&#39;</code></pre>
-<p>Third, an empty column to flag potential cases of Warblish we have missed:</p>
+<p>Third, a column coding for whether there were any other fixes (e.g., trailing spaces, brackets).</p>
+<pre class="r"><code>birds$fixes &lt;- &#39;NO&#39;</code></pre>
+<p>Fourth, an empty column to flag potential cases of Warblish we have missed. This should be used if the annotator made the decision to change single quotes to *:</p>
 <pre class="r"><code>birds$warblish &lt;- &#39;&#39;</code></pre>
-<p>Fourth, an empty column telling us if there’s any interesting observations or anything specific about how this example has been processed, let’s call it <code>comment</code>:</p>
+<p>Fifth, an empty column telling us if there’s any interesting observations or anything specific about how this example has been processed, let’s call it <code>comment</code>:</p>
 <pre class="r"><code>birds$comment &lt;- &#39;&#39;</code></pre>
 <p>Save this:</p>
 <pre class="r"><code>write_csv(birds, &#39;../data/voice_all_guides_for_annotation.csv&#39;)</code></pre>
