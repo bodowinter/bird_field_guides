@@ -1,19 +1,19 @@
-﻿FileName,Author,FirstEdition,CurrentEdition,Publisher,Place,OnomatopoeiaHighlighting,AllBirdsCoded,VoiceSection,Notes,ISBN,CleanText,SyntacticAnnotation,ComparisonCoded,CleanTextChecked,OnomatopeiaCoded
-allabout_birds.csv,The Cornell Lab,2020,2020,Cornell University,Ithaca,italics,yes,yes,website,,no,no,no,no,no
-bruun_hamlyn_guide.csv,"Bertel Brun (text), Arthur Singer (illustrator)",1970,1978,Hamlyn,London,single quotes,only vocal,no,,,yes,no,yes,yes,no
-collins_british_common.csv,"Paul Sterry, Paul Stancliffe",2015,2015,Harper Collins,London,italics,yes,yes,by British Trust for Ornithology,978-0-00-755152-1,yes,no,yes,yes,no
-collins_british_rare.csv,"Paul Sterry, Paul Stancliffe",2015,2015,Harper Collins,London,italics,yes,yes,by British Trust for Ornithology,978-0-00-755156-9,yes,no,yes,yes,no
-collins_gem_birds.csv,Jim Flegg,2001,2012,Harper Collins,London,bold and italics,yes,yes,,978-0-00-717860-5,yes,yes,yes,yes,yes
-collins_gem_garden_birds.csv,Stephen Moss,2004,2012,Harper Collins,London,single quotes,yes,yes,less onomatopoeia?,978-0-00-717614-4,yes,yes,yes,yes,yes
-felix_hisek_birds.csv,Dr. Jiri Felix (author); Kvetoslav Hisek (illustrator),1978,1983,Octopus Books Limited,London,single quotes,yes,yes,translated by Olga Kuthanová,0-7064-0766-0,yes,yes,yes,yes,no
-holden_cleeves_birds.csv,"Peter Holden, Tim Cleeves",2002,2014,Bloomsbury Publishing,London,single quotes,only vocal,yes,rarities section at end did not include voice and was not coded,978-1-4729-0647-2,yes,no,no,yes,no
-mackinnon_china.csv,"John Mackinnon, Nigel Hicks",2016,2016,Bloomsbury Publishing,London,italics,yes,no,,978-1-4729-3213-6,yes,yes,yes,yes,yes
-morcombe_australia.csv,Michael Morcombe,2000,2003,Steve Parish Publishing Pty Ltd,Archerfield,single quotes,yes,yes,,174021417X,yes,no,no,yes,no
-national_geographic_america.csv,"John L. Dunn, Jonathan Alderfer, maps by Paul Lehman",2017,2017,National Geographic,"Washington, DC",italics,yes,yes,,978-1-4262-1835-4,yes,no,yes,yes,no
-national_trust_bird_spotter.csv,"Robyn Swift (text), Mike Langman (Illustrations)",2016,2016,Nosy Crow,London,italics,yes,yes,childrens guide,978-1-78800-422-0,yes,yes,yes,yes,yes
-peterson_chalif_mexico.csv,"Roger Tory Peterson, Edward L. Chalif",1973,1973,Houghton Mifflin,New York,italics,yes,yes,,?,yes,no,no,yes,no
-rspb_brereton.csv,"Catherine Brereton, Kate McLelland",2020,2020,Bloomsbury Publishing,London,italics,yes,yes,childrens guide,978-1-5266-0281-7,yes,yes,yes,yes,yes
-rspb_pocket_birds_harrap.csv,"Simon Harrap (text), Dave Nurney (illustrator)",2007,2012,Bloomsbury Publishing,London,italics,yes,yes,from the Royal Society for the Protection of Birds,978-1-4729-6262-1,yes,yes,yes,yes,yes
-sibley_birds.csv,David Sibley,2000,2014,Bloomsbury Publishing,London,italics,yes,yes,,978-1-4729-0927-5,no,no,no,no,no
-simpson_day_australian.csv,"Ken Simpson, Nicolas Day, Peter Trusler",1984,1989,Christopher Helm London,London,single quotes,only vocal,yes,"form, concept and design by Penguin books Australia (hence the similarity)",0-7470-3023-5,yes,yes,yes,yes,no
-tarboton_kruger_national_park.csv,Warwick Tarboton & Peter Ryan,2016,2016,Penguin Random House,Cape Town,italics and single quotes,only vocal,no,,978-1-77584-449-5,yes,yes,yes,yes,no
+﻿filename,name,author,first_edition,current_edition,edition,publisher,place,onomatopoeia_highlighting,all_birds_coded,voice_section,notes,ISBN
+allabout_birds.csv,The Cornell Lab All About Birds Guide,The Cornell Lab,2020,2020,first,Cornell University,Ithaca,italics,yes,yes,website,N/A
+bruun_hamlyn_guide.csv,The Hamlyn Guide to Birds of Britain and Europe,"Bertel Brun (text), Arthur Singer (illustrator)",1970,1978,second,Hamlyn,London,single quotes,only vocal,no,,?
+collins_british_common.csv,Collins BTO Guide to British Birds,"Paul Sterry, Paul Stancliffe",2015,2015,first,Harper Collins,London,italics,yes,yes,by British Trust for Ornithology,978-0-00-755152-1
+collins_british_rare.csv,Collins BTO Guide to Rare British Birds,"Paul Sterry, Paul Stancliffe",2015,2015,first,Harper Collins,London,italics,yes,yes,by British Trust for Ornithology,978-0-00-755156-9
+collins_gem_birds.csv,Collins Gem Birds,Jim Flegg,2001,2012,?,Harper Collins,London,bold and italics,yes,yes,,978-0-00-717860-5
+collins_gem_garden_birds.csv,Collins Gem Garden Birds,Stephen Moss,2004,2012,?,Harper Collins,London,single quotes,yes,yes,less onomatopoeia?,978-0-00-717614-4
+felix_hisek_birds.csv,The Illustrated Book of Birds,Dr. Jiri Felix (author); Kvetoslav Hisek (illustrator),1978,1983,first,Octopus Books Limited,London,single quotes,yes,yes,translated by Olga Kuthanová,0-7064-0766-0
+holden_cleeves_birds.csv,RSPB Handbook of British Birds,"Peter Holden, Tim Cleeves",2002,2014,,Bloomsbury Publishing,London,single quotes,only vocal,yes,rarities section at end did not include voice and was not coded,978-1-4729-0647-2
+mackinnon_china.csv,Birds of China (pocket photo guide),"John Mackinnon, Nigel Hicks",2016,2016,first,Bloomsbury Publishing,London,italics,yes,no,,978-1-4729-3213-6
+morcombe_australia.csv,Field Guide to Australian Birds,Michael Morcombe,2000,2003,,Steve Parish Publishing Pty Ltd,Archerfield,single quotes,yes,yes,,174021417X
+national_geographic_america.csv,National Geographic Field Guide to the Birds of North America,"John L. Dunn, Jonathan Alderfer, maps by Paul Lehman",2017,2017,first,National Geographic,"Washington, DC",italics,yes,yes,,978-1-4262-1835-4
+national_trust_bird_spotter.csv,National Trust Out and about Bird Spotter: A children's guide to over 100 different birds,"Robyn Swift (text), Mike Langman (Illustrations)",2016,2016,first,Nosy Crow,London,italics,yes,yes,childrens guide,978-1-78800-422-0
+peterson_chalif_mexico.csv,Mexican Birds (Peterson Field Guides),"Roger Tory Peterson, Edward L. Chalif",1973,1973,first,Houghton Mifflin,New York,italics,yes,yes,,?
+rspb_brereton.csv,RSPB Nature Guide to Birds,"Catherine Brereton, Kate McLelland",2020,2020,first,Bloomsbury Publishing,London,italics,yes,yes,childrens guide,978-1-5266-0281-7
+rspb_pocket_birds_harrap.csv,RSPB Pocket Guide to British Birds,"Simon Harrap (text), Dave Nurney (illustrator)",2007,2012,second,Bloomsbury Publishing,London,italics,yes,yes,from the Royal Society for the Protection of Birds,978-1-4729-6262-1
+sibley_birds.csv,The North American Bird Guide,David Sibley,2000,2014,second,Bloomsbury Publishing,London,italics,yes,yes,,978-1-4729-0927-5
+simpson_day_australian.csv,Field Guide to the Birds of Australia,"Ken Simpson, Nicolas Day, Peter Trusler",1984,1989,,Christopher Helm London,London,single quotes,only vocal,yes,"form, concept and design by Penguin books Australia (hence the similarity)",0-7470-3023-5
+tarboton_kruger_national_park.csv,Guide to Birds of the Kruger National Park,Warwick Tarboton & Peter Ryan,2016,2016,first,Penguin Random House,Cape Town,italics and single quotes,only vocal,no,,978-1-77584-449-5
