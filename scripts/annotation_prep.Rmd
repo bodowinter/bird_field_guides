@@ -1,0 +1,98 @@
+---
+title: "Getting data ready for annotation"
+author: "Bodo"
+date: "04/08/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+This script loads in the combined data and prepares it for annotation by doing the following steps:
+
+- add unique ID
+- randomize
+- add columns for annotation
+
+## Load packages and data
+
+Load packages:
+
+```{r, warning = FALSE, message = FALSE}
+library(tidyverse)
+```
+
+Load data:
+
+```{r, warning = FALSE, message = FALSE}
+birds <- read_csv('../data/voice_all_guides.csv')
+```
+
+## Processing
+
+Add unique id:
+
+```{r}
+birds$unique_id <- str_c('id_', 1:nrow(birds))
+```
+
+Re-order columns and exclude those that irrelevant for annotation (length and species info):
+
+```{r}
+birds <- select(birds,
+                unique_id, fieldguide, english_common, voice)
+```
+
+Randomize:
+
+```{r}
+set.seed(42)
+birds <- sample_n(birds, size = nrow(birds))
+```
+
+Replace '…' which is not displayed correctly in Excel with three separate dots:
+
+```{r}
+birds <- mutate(birds,
+                voice = str_replace_all(voice, '…', '...'))
+```
+
+Add relevant columns for annotation. First, a column which is a copy of the 'voice' section where boundaries (semicolons) will be placed in between different types of sound objects.
+
+```{r}
+birds$voice_bounded <- birds$voice
+```
+
+Second, a column coding for whether a typo has been fixed. Crucially, if there is a typo, this needs to be fixed in both `voice` and `voice_bounded`:
+
+```{r}
+birds$typo <- 'NO'
+```
+
+Third, an empty column to flag potential cases of Warblish we have missed:
+
+```{r}
+birds$warblish <- ''
+```
+
+Fourth, an empty column telling us if there's any interesting observations or anything specific about how this example has been processed, let's call it `comment`:
+
+```{r}
+birds$comment <- ''
+```
+
+Save this:
+
+```{r}
+write_csv(birds, '../data/voice_all_guides_for_annotation.csv')
+```
+
+This completes this script.
+
+
+
+
+
