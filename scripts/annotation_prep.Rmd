@@ -81,7 +81,7 @@ birds$fixes <- 'NO'
 Fourth, an empty column to flag potential cases of Warblish we have missed. This should be used if the annotator made the decision to change single quotes to *:
 
 ```{r}
-birds$warblish <- ''
+birds$warblish <- 'NO'
 ```
 
 Fifth, an empty column telling us if there's any interesting observations or anything specific about how this example has been processed, let's call it `comment`:

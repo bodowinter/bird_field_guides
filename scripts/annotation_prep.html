@@ -212,7 +212,7 @@ birds &lt;- sample_n(birds, size = nrow(birds))</code></pre>
 <p>Third, a column coding for whether there were any other fixes (e.g., trailing spaces, brackets).</p>
 <pre class="r"><code>birds$fixes &lt;- &#39;NO&#39;</code></pre>
 <p>Fourth, an empty column to flag potential cases of Warblish we have missed. This should be used if the annotator made the decision to change single quotes to *:</p>
-<pre class="r"><code>birds$warblish &lt;- &#39;&#39;</code></pre>
+<pre class="r"><code>birds$warblish &lt;- &#39;NO&#39;</code></pre>
 <p>Fifth, an empty column telling us if there’s any interesting observations or anything specific about how this example has been processed, let’s call it <code>comment</code>:</p>
 <pre class="r"><code>birds$comment &lt;- &#39;&#39;</code></pre>
 <p>Save this:</p>
